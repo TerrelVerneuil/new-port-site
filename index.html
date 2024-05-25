@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+    <div class="bg"></div>
+    <div class="navbar">
+            <a href="index.html">Home</a>
+            <a target="_blank" href="https://www.linkedin.com/in/terrel-verneuil-63b706167">LinkedIn</a>
+            <a target="_blank" href="https://github.com/TerrelVerneuil">Github</a>
+            <a href="projects.html">Projects</a>
+            <a target="_blank" href="resume.docx.pdf">Resume</a>
+    </div>
+  
+   
+   
+    <div class="bodytext">
+        <!-- <img src="coffee.gif"  width="200vw" height="200vh" > -->
+       <h1>Terrel Verneuil</h1>
+       
+       <p style="text-align: center;" id="sequence">Software Developer</p>
+     
+    </div>
+    <div class="record" id="record"></div>
+    <audio controls autoplay hidden loop id="myaudio" >
+        <source src="deep-lofi-vibes-205062.mp3" type="audio/mpeg">
+      </audio>
+    <script src="audio.js"></script>
+
+      
+    </div>
+  
+    </script>
+    <script>
+        
+       
+     
+
+        var example = ['Active Programmer', 
+        'AI Enthusiast', 'Web Developer', 
+        'Jazz Lover', 'Backend Developer', 'Lofi Hip Hop Fan', 
+    'Software Developer'];
+
+        textSequence(0);
+        function textSequence(i) {
+            if (example.length > i) {
+                setTimeout(function() {
+                    document.getElementById("sequence").innerHTML = example[i];
+                    textSequence(++i);
+                }, 2200); // 2.2 seconds (in milliseconds)
+            } else if (example.length == i) { // Loop
+                textSequence(0);
+            }
+        }
+    </script>
+    
+</body>
+</html>
