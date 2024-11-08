@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
         audio.currentTime = parseFloat(savedTime);
     }
 
+    var savedTransform = localStorage.getItem('recordTransform');
+    if (savedTransform) {
+        record.style.transform = savedTransform;
+    }
     // Save playback state and time to localStorage on play/pause
     record.addEventListener('click', function () { //for this event listener, it should pop up the audio pause and play button
         if (audio.paused) {
@@ -29,13 +33,19 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             audio.pause();
             localStorage.setItem('audioPaused', 'true');
+            //save the position of the record spin pause state in local storage
+            localStorage.setItem('audioCurrentTime', audio.currentTime);
+            localStorage.setItem('recordTransform', window.getComputedStyle(record).getPropertyValue('transform'));
             record.classList.add('paused');
         }
+    //save record position in local storage
 
        
     });
     if (audio.paused) {
+     
         record.classList.add('paused');
+       
     }
 
     // Update current time in localStorage every second
@@ -50,12 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //building game of snake in js
     //first we should make a canvas
-    const canvas = document.getElementById('snake'); //we will configure the canvas in css
-    //grab the size of the canvas
-    canvas.width = 600;
-    canvas.height = 600;
-    canvas.style.border = "1px solid black";
-    
+   
     
     
     
